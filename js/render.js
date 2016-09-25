@@ -1,4 +1,3 @@
-window.addEventListener("keydown", keyDown, false);
 
 var isMoving = false;
 var isGrowing = false;
@@ -100,11 +99,13 @@ var scaleRate = 0.1;
 function movebox() {
 	if(isMoving) {
 		C_a.position.x += moveRate;
+	}
+	if(isGrowing) {
 		C_a.scale.x += scaleRate;
 	}
 }
 
-function keyDown(e) {
+document.onkeydown = function(e) {
 	var keyCode = e.keyCode;
 	if(keyCode===65) {
 		isMoving = true;
@@ -112,7 +113,7 @@ function keyDown(e) {
 	}
 }
 
-function keyUp(e) {
+document.onkeyup = function(e) {
 	var keyCode = e.keyCode;
 	if(keyCode===65) {
 		isMoving = true;
