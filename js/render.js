@@ -66,6 +66,8 @@ scene.add( B_j );
 
 var camera = new THREE.PerspectiveCamera( 30, window.innerWidth / window.innerHeight, 1, 1000 );
 camera.position.z = 60;
+camera.position.y = 45;
+camera.position.x = 45;
 controls = new THREE.OrbitControls( camera, renderer.domElement );
 controls.enableDamping = true;
 controls.dampingFactor = 0.25;
