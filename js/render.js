@@ -1,5 +1,8 @@
 window.addEventListener("keydown", keyDown, false);
 
+var isMoving = false;
+var isGrowing = false;
+
 // init
 var scene = new THREE.Scene();
 
@@ -66,38 +69,53 @@ controls.enableDamping = true;
 controls.dampingFactor = 0.25;
 controls.enableZoom = false;
 
+// initialize starting positions
+C_a.position.set(-20,-11,0);
+Cs_w.position.set(-20,-9,0);
+D_s.position.set(-20,-7,0);
+Ds_e.position.set(-20,-5,0);
+E_d.position.set(-20,-3,0);
+F_f.position.set(-20,-1,0);
+Fs_t.position.set(-20,1,0);
+G_g.position.set(-20,3,0);
+Gs_y.position.set(-20,5,0);
+A_h.position.set(-20,7,0);
+As_u.position.set(-20,9,0);
+B_j.position.set(-20,11,0);
+
 
 var render = function () {
 	requestAnimationFrame( render );
-	C_a.position.set(-20,-11,0);
-	Cs_w.position.set(-20,-9,0);
-	D_s.position.set(-20,-7,0);
-	Ds_e.position.set(-20,-5,0);
-	E_d.position.set(-20,-3,0);
-	F_f.position.set(-20,-1,0);
-	Fs_t.position.set(-20,1,0);
-	G_g.position.set(-20,3,0);
-	Gs_y.position.set(-20,5,0);
-	A_h.position.set(-20,7,0);
-	As_u.position.set(-20,9,0);
-	B_j.position.set(-20,11,0);
 	
+	movebox();
 
 	renderer.render(scene, camera);
 };
 
 render();
 
-var moveRate = 10;
+var moveRate = 0.1;
 var scaleRate = 0.1;
 
-function keyDown(e) {
-	var keyCode = e.keyCode;
-	if(keyCode==65) {
-		var x = C_a.position.x;
-		C_a.position.setX(10);
+function movebox() {
+	if(isMoving) {
+		C_a.position.x += moveRate;
 		C_a.scale.x += scaleRate;
-		console.log(C_a.position.x);
 	}
 }
 
+function keyDown(e) {
+	var keyCode = e.keyCode;
+	if(keyCode===65) {
+		isMoving = true;
+		isGrowing = true;
+	}
+}
+
+function keyUp(e) {
+	var keyCode = e.keyCode;
+	if(keyCode===65) {
+		isMoving = true;
+		isGrowing = false;
+	}
+}
