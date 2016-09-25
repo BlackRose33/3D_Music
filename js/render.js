@@ -1,7 +1,8 @@
 var meshes = [];
+var pressedKeys = [];
+var isPressed = [];
 
 var isGrowing = false;
-var isPressed = false;
 
 // init
 var scene = new THREE.Scene();
@@ -90,7 +91,7 @@ var render = function () {
 	requestAnimationFrame( render );
 	
 	movebox();
-
+	
 	renderer.render(scene, camera);
 };
 
@@ -101,29 +102,37 @@ var scaleRate = 0.1;
 
 function movebox() {
 	for(var i=0; i<meshes.length; i++) {
-		if(meshes[i]==isGrowing) {
-			isGrowing.scale.x += scaleRate;
-			isGrowing.position.x += moveRate/2;
+		if(pressedKeys.indexOf(meshes[i]) > -1) {
+			meshes[i].scale.x += scaleRate;
+			meshes[i].position.x += moveRate/2;
 		}
 		else {
 			meshes[i].position.x += moveRate;
 		}
 	}
-	
-
 }
 
 document.onkeydown = function(e) {
 	var keyCode = e.keyCode;
 	if(keyCode===65) {
-		if(!isPressed) {
-			isPressed = true;
+		if(!isPressed['a']) {
+			isPressed['a'] = true;
 			C_a = new THREE.Mesh( geometry, red );
 			scene.add(C_a);
 			C_a.position.set(-20,-11,0);
 			meshes.push(C_a);
+			pressedKeys.push(C_a);
 		}
-		isGrowing = C_a;
+	}
+	if(keyCode===83) {
+		if(!isPressed['s']) {
+			isPressed['s'] = true;
+			D_s = new THREE.Mesh( geometry, blue );
+			scene.add(D_s);
+			D_s.position.set(-20,-9,0);
+			meshes.push(D_s);
+			pressedKeys.push(D_s);
+		}
 	}
 }
 
@@ -131,6 +140,14 @@ document.onkeyup = function(e) {
 	var keyCode = e.keyCode;
 	if(keyCode===65) {
 		isGrowing = false;
-		isPressed = false;
+		var index = pressedKeys.indexOf(C_a);
+		pressedKeys.splice(index, 1);
+		isPressed['a'] = false;
+	}
+	if(keyCode===83) {
+		isGrowing = false;
+		var index = pressedKeys.indexOf(D_s);
+		pressedKeys.splice(index, 1);
+		isPressed['s'] = false;
 	}
 }
