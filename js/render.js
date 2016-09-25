@@ -64,8 +64,8 @@ scene.add( As_u );
 scene.add( B_j );
 */
 
-var camera = new THREE.PerspectiveCamera( 30, window.innerWidth / window.innerHeight, 1, 1000 );
-camera.position.z = 60;
+var camera = new THREE.PerspectiveCamera(25, window.innerWidth / window.innerHeight, 1, 1000 );
+camera.position.z = 75;
 camera.position.y = 45;
 camera.position.x = 45;
 controls = new THREE.OrbitControls( camera, renderer.domElement );
@@ -121,7 +121,7 @@ document.onkeydown = function(e) {
 			isPressed['a'] = true;
 			C_a = new THREE.Mesh( geometry, red );
 			scene.add(C_a);
-			C_a.position.set(-20,-11,0);
+			C_a.position.set(-65,-45,0);
 			meshes.push(C_a);
 			pressedKeys.push(C_a);
 		}
@@ -131,7 +131,7 @@ document.onkeydown = function(e) {
 			isPressed['w'] = true;
 			Cs_w = new THREE.Mesh( geometry, violet );
 			scene.add(Cs_w);
-			Cs_w.position.set(-20,-9,0);
+			Cs_w.position.set(-65,-40,0);
 			meshes.push(Cs_w);
 			pressedKeys.push(Cs_w);
 		}
@@ -141,7 +141,7 @@ document.onkeydown = function(e) {
 			isPressed['s'] = true;
 			D_s = new THREE.Mesh( geometry, blue );
 			scene.add(D_s);
-			D_s.position.set(-20,-7,0);
+			D_s.position.set(-65,-35,0);
 			meshes.push(D_s);
 			pressedKeys.push(D_s);
 		}
@@ -151,7 +151,7 @@ document.onkeydown = function(e) {
 			isPressed['e'] = true;
 			Ds_e = new THREE.Mesh( geometry, yellow );
 			scene.add(Ds_e);
-			Ds_e.position.set(-20,-5,0);
+			Ds_e.position.set(-65,-30,0);
 			meshes.push(Ds_e);
 			pressedKeys.push(Ds_e);
 		}
@@ -161,7 +161,7 @@ document.onkeydown = function(e) {
 			isPressed['d'] = true;
 			E_d = new THREE.Mesh( geometry, orange );
 			scene.add(E_d);
-			E_d.position.set(-20,-3,0);
+			E_d.position.set(-65,-25,0);
 			meshes.push(E_d);
 			pressedKeys.push(E_d);
 		}
@@ -171,7 +171,7 @@ document.onkeydown = function(e) {
 			isPressed['f'] = true;
 			F_f = new THREE.Mesh( geometry, white );
 			scene.add(F_f);
-			F_f.position.set(-20,-1,0);
+			F_f.position.set(-65,-20,0);
 			meshes.push(F_f);
 			pressedKeys.push(F_f);
 		}
@@ -181,7 +181,7 @@ document.onkeydown = function(e) {
 			isPressed['t'] = true;
 			Fs_t = new THREE.Mesh( geometry, aqua );
 			scene.add(Fs_t);
-			Fs_t.position.set(-20,1,0);
+			Fs_t.position.set(-65,-15,0);
 			meshes.push(Fs_t);
 			pressedKeys.push(Fs_t);
 		}
@@ -191,7 +191,7 @@ document.onkeydown = function(e) {
 			isPressed['g'] = true;
 			G_g = new THREE.Mesh( geometry, lime );
 			scene.add(G_g);
-			G_g.position.set(-20,3,0);
+			G_g.position.set(-65,-10,0);
 			meshes.push(G_g);
 			pressedKeys.push(G_g);
 		}
@@ -201,7 +201,7 @@ document.onkeydown = function(e) {
 			isPressed['y'] = true;
 			Gs_y = new THREE.Mesh( geometry, pink );
 			scene.add(Gs_y);
-			Gs_y.position.set(-20,5,0);
+			Gs_y.position.set(-65,-5,0);
 			meshes.push(Gs_y);
 			pressedKeys.push(Gs_y);
 		}
@@ -211,7 +211,7 @@ document.onkeydown = function(e) {
 			isPressed['h'] = true;
 			A_h = new THREE.Mesh( geometry, silver );
 			scene.add(A_h);
-			A_h.position.set(-20,7,0);
+			A_h.position.set(-65,0,0);
 			meshes.push(A_h);
 			pressedKeys.push(A_h);
 		}
@@ -221,7 +221,7 @@ document.onkeydown = function(e) {
 			isPressed['u'] = true;
 			As_u = new THREE.Mesh( geometry, green );
 			scene.add(As_u);
-			As_u.position.set(-20,9,0);
+			As_u.position.set(-65,5,0);
 			meshes.push(As_u);
 			pressedKeys.push(As_u);
 		}
@@ -231,7 +231,7 @@ document.onkeydown = function(e) {
 			isPressed['j'] = true;
 			B_j = new THREE.Mesh( geometry, peach );
 			scene.add(B_j);
-			B_j.position.set(-20,11,0);
+			B_j.position.set(-65,10,0);
 			meshes.push(B_j);
 			pressedKeys.push(B_j);
 		}
